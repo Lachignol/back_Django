@@ -1,0 +1,95 @@
+{% extends "main.html" %}
+{% load static %}
+{%block link %}
+<link href="../../static/custom_user/signin.css" rel="stylesheet" />
+{%endblock%}
+
+{%block content%}
+<div class="testbox">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+      <div class="banner">
+        <h1>Registration Form</h1>
+      </div>
+      <p>Runner Information</p>
+      <div class="item">
+        <label for="username">userName<span>*</span></label>
+        <input id="username" type="text" name="username" required/>
+      </div>
+      <div class="item">
+        <label for="firstname">firstName<span>*</span></label>
+        <input id="firstname" type="text" name="firstname" required/>
+      </div>
+      <div class="item">
+        <label for="lastname">lastName<span>*</span></label>
+        <input id="lastname" type="text" name="lastname" required/>
+      </div>
+      <div class="item">
+        <label for="email">Email Address<span>*</span></label>
+        <input id="email" type="email" name="email" required/>
+      </div>
+      <div class="item">
+        <label for="password">Password<span>*</span></label>
+        <input id="password" type="address" name="password" required/>
+      </div>
+      <div class="item">
+        <label for="avatar">Photo de profil<span>*</span></label>
+        <input id="avatar" type="file" name="avatar" accept="image/*"/>
+      </div>
+     
+      <div class="item">
+        <label for="zip">Zip<span>*</span></label>
+        <input id="zip" type="text" name="zip" required/>
+      </div>
+      <div class="item">
+        <label for="phone">Phone<span>*</span></label>
+        <input id="phone" type="number" name="phone" required/>
+      </div>
+      <div class="item">
+        <label for="bdate">Date of Birth<span>*</span></label>
+        <input id="bdate" type="date" name="bdate" required/>
+        <i class="fas fa-calendar-alt"></i>
+      </div>
+      <div class="question">
+        <label>Gender</label>
+        <div class="question-answer">
+          <div>
+            <input type="radio" value="none" id="radio_1" name="gender"/>
+            <label for="radio_1" class="radio"><span>Male</span></label>
+          </div>
+          <div>
+            <input  type="radio" value="none" id="radio_2" name="gender"/>
+            <label for="radio_2" class="radio"><span>Female</span></label>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <p>T-Shirt Size</p>
+        <select>
+          <option selected value="" disabled selected></option>
+          <option value="course-type" >Small</option>
+          <option value="short-courses">Medium</option>
+          <option value="featured-courses">Large</option>
+          <option value="undergraduate">Extra Large</option>
+        </select>
+      </div>
+      <div class="question">
+        <label>Choose Race</label>
+        <div class="question-answer">
+          <div>
+            <input type="radio" value="none" id="radio_3" name="race"/>
+            <label for="radio_3" class="radio"><span>5k - $25</span></label>
+          </div>
+          <div>
+            <input  type="radio" value="none" id="radio_4" name="race"/>
+            <label for="radio_4" class="radio"><span>10K - $25</span></label>
+          </div>
+        </div>
+      </div>
+      <div class="btn-block">
+        <button type="submit">SUBMIT</button>
+      </div>
+    </form>
+  </div>
+
+{%endblock%}
