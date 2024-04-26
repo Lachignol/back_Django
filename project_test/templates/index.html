@@ -1,0 +1,10 @@
+{% extends "main.html" %}
+
+{%block content%}
+<h1>Test User connécté ? <h1>
+{%if User is not AnonymousUser %}
+<p>bien connécté</p>
+{% endif %}
+    
+
+{%endblock%}

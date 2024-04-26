@@ -1,6 +1,37 @@
 {% extends "main.html" %}
 
 {%block content%}
-<h1>Test User<h1>
+<h1>Test login <h1>
+{%if User %}
+<p>vous ête déja connecté<p>
+    <a href="{% url 'logout' %}">logout</a>
+{% else %}
+<form method="post">
+    {% csrf_token %}
+  <div class="banner">
+    <h1>Registration Form</h1>
+  </div>
+  <p>Register Information</p>
+  <div class="item">
+    <label for="username">userName<span>*</span></label>
+    <input id="username" type="text" name="username" required/>
+  </div>
+ 
+  </div>
+ 
+  <div class="item">
+    <label for="password">Password<span>*</span></label>
+    <input id="password" type="address" name="password" required/>
+  </div>
+
+  <div class="btn-block">
+    <button type="submit">SUBMIT</button>
+  </div>
+</form>
+</div>
+
+
+{% endif %}
+    
 
 {%endblock%}

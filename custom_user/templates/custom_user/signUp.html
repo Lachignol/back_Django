@@ -1,0 +1,45 @@
+{% extends "main.html" %}
+{% load static %}
+{%block link %}
+<link href="../../static/custom_user/signin.css" rel="stylesheet" />
+{%endblock%}
+
+{%block content%}
+<div class="testbox">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+      <div class="banner">
+        <h1>Registration Form</h1>
+      </div>
+      <p>Register Information</p>
+      <div class="item">
+        <label for="username">userName<span>*</span></label>
+        <input id="username" type="text" name="username" required/>
+      </div>
+      <div class="item">
+        <label for="firstname">firstName<span>*</span></label>
+        <input id="firstname" type="text" name="firstname" required/>
+      </div>
+      <div class="item">
+        <label for="lastname">lastName<span>*</span></label>
+        <input id="lastname" type="text" name="lastname" required/>
+      </div>
+      <div class="item">
+        <label for="email">Email Address<span>*</span></label>
+        <input id="email" type="email" name="email" required/>
+      </div>
+      <div class="item">
+        <label for="password">Password<span>*</span></label>
+        <input id="password" type="address" name="password" required/>
+      </div>
+      <div class="item">
+        <label for="avatar">Photo de profil<span>*</span></label>
+        <input id="avatar" type="file" name="avatar" accept="image/*"/>
+      </div>
+      <div class="btn-block">
+        <button type="submit">SUBMIT</button>
+      </div>
+    </form>
+  </div>
+
+{%endblock%}
