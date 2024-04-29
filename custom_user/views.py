@@ -3,7 +3,6 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.contrib.auth import authenticate,login,logout
 from django.core.files.storage import FileSystemStorage
-
 from .forms import UserLoginForm, UserSignUpForm
 from .templates import *
 from .models import User
@@ -32,17 +31,17 @@ def signUp(request):
             if form.is_valid():
                 userForm = form.save(commit=False)
                 print(userForm.avatar)
-                if userForm.avatar:
-                        upload = userForm.avatar
-                        fss = FileSystemStorage(location='media_files/profile_pict/',base_url='/profile_pict')
-                        file = fss.save(upload.name,upload)
-                        file_url = fss.url(file)
-                        # upload = userForm.avatar
-                        print(userForm.avatar)
-                        print(userForm.username)
-                        print(userForm.first_name)
-                        print(userForm.last_name)
-                        print(userForm.email)
+                # if userForm.avatar:
+                #         upload = userForm.avatar
+                #         fss = FileSystemStorage(location='media_files/profile_pict/',base_url='/profile_pict')
+                #         file = fss.save(upload.name,upload)
+                #         file_url = fss.url(file)
+                #         # upload = userForm.avatar
+                #         print(userForm.avatar)
+                #         print(userForm.username)
+                #         print(userForm.first_name)
+                #         print(userForm.last_name)
+                #         print(userForm.email)
                 user = User.objects.create_user(username=userForm.username,first_name=userForm.first_name,last_name=userForm.last_name,email=userForm.email,password=userForm.password,avatar=userForm.avatar)
                 login(request, user)
                 return HttpResponseRedirect(settings.LOGIN_REDIRECT_URL)
