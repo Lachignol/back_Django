@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
-    avatar = models.ImageField(upload_to='profile_pict')
+    avatar = models.ImageField(upload_to='profile_pict',blank=True,null=True)
     
     
 
