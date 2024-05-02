@@ -7,14 +7,14 @@ from .templates import *
 
 
 def index(request):
-    User= request.user
-    if request.user.is_authenticated:
-        print(User)
-        context={
-        "User":User
-        }
-        return render(request,"index.html",context=context)
-    else:
+    # User= request.user
+    # if request.user.is_authenticated:
+    #     print(User)
+    #     context={
+    #     "User":User
+    #     }
+    #     return render(request,"index.html",context=context)
+    # else:
         return render(request,"index.html")
     
      

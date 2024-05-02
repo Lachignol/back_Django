@@ -1,19 +1,20 @@
-{% extends "main.html" %} {%block content%}
-<h1>
-  Test login
-  <h1>
-    {%if User %}
-    <p>vous ête déja connecté</p>
-    <p>
-      <a href="{% url 'auth_app:logout' %}">logout</a>
-      {% else %} {%if errorCredential%} {{errorCredential}} {%endif%}
-    </p>
-
-    <form method="post">
-      {% csrf_token %} {{ form.as_p }}
-      <button type="submit">SUBMIT</button>
-    </form>
-    <a href="{% url 'auth_app:signup' %}">pas encore inscrit cliquez ici !</a>
-    {% endif %} {%endblock%}
-  </h1>
-</h1>
+{% extends "main.html" %} {%block content%} {%block link %}
+<link href="../../static/auth_app/login.css" rel="stylesheet" />
+{%endblock%}
+<div class="loginPage">
+  <h1>Test login</h1>
+</div>
+{% if user.is_authenticated %}
+<p>vous ête déja connecté</p>
+  <a href="{% url 'auth_app:logout' %}">logout</a>
+{%else%}
+<div>
+<form method="post">
+  {% csrf_token %} {{ form.as_p }}
+  <button type="submit">Connexion</button>
+</form>
+<small>
+  <a href="{% url 'auth_app:signup' %}">pas encore inscrit cliquez ici !</a>
+</small>
+</div>
+{% endif %}{%endblock%}

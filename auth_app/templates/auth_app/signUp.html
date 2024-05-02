@@ -1,5 +1,4 @@
 {% extends "main.html" %}
-{% load static %}
 {%block link %}
 <link href="../../static/auth_app/signUp.css" rel="stylesheet" />
 {%endblock%}
@@ -11,7 +10,9 @@
      {{ form.as_p }}
         <button type="submit">SUBMIT</button>
     </form>
+    <small>
     <a href="{% url 'auth_app:login' %}">déja inscrit connecté vous !</a>
+    </small>
   </div>
 
 {%endblock%}

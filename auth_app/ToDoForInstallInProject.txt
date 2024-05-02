@@ -8,6 +8,12 @@ et definir les routes de redirection
 ==>LOGIN_REDIRECT_URL = '/'
 ==>LOGOUT_REDIRECT_URL= '/auth/login'
 
+Ajouter le components "messages" de cette appli au template de base du projet
+et ajouté dans le header du template de base :
+{%block link %}
+    <link href="../../static/auth_app/messages.css" rel="stylesheet" />
+{%endblock%}
+
 Il faut aussi configuer les fichier static et media(pour l'upload de fichier)
 voici un exemple d'organisation:
 STATIC_URL = 'static/'
