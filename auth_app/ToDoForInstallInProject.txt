@@ -1,0 +1,31 @@
+Ajouter dans INSTALLED_APPS(dans le dossier setting du projet)
+le nom de l'application donc ici ==>"auth_app".
+
+Faire du model User crée dans notre app 
+le model de référence pour l'authentification pour le projet
+et definir les routes de redirection
+==>AUTH_USER_MODEL = 'auth_app.User'
+==>LOGIN_REDIRECT_URL = '/'
+==>LOGOUT_REDIRECT_URL= '/auth/login'
+
+Il faut aussi configuer les fichier static et media(pour l'upload de fichier)
+voici un exemple d'organisation:
+STATIC_URL = 'static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT =   BASE_DIR /'media_files'
+
+
+Pour le projet en lui meme et non l'app ici en question
+si l'on veu connécter les templates 
+*project_test ici est a remplacer par son nom de projet 
+TEMPLATES = [
+    { 'DIRS': [BASE_DIR/'project_test/templates'],
+
+    ....}]
+
+
+Et cette ligne fait que tous les repertoires templates des app seront connecter
+donc laisser par default a True 
+ 'APP_DIRS': True,
+
+
