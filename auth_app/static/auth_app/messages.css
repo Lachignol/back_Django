@@ -7,11 +7,12 @@
   height: 100%;
   width: 100%;
   visibility: collapse;
+  color: black;
 }
 
 @keyframes visibility {
   0% {
-    height: 0px;
+    height: 2px;
     visibility: hidden;
     opacity: 0;
   }
@@ -43,6 +44,7 @@
   background-color: rgb(205, 37, 37, 0.9);
   border-radius: 10px;
   border: 1px black solid;
+  
 }
 
 .warning {
@@ -54,6 +56,7 @@
 }
 
 .success {
+  color: black;
   animation-name: visibility;
   animation-duration: 6s;
   background-color: rgb(34, 210, 34, 0.9);

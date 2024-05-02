@@ -9,10 +9,6 @@ from .models import User
 
 
 
-
-
-
-
 def signUp(request):
         if request.method == "POST" :
             form = UserSignUpForm(request.POST,request.FILES)
@@ -33,7 +29,7 @@ def loginUser(request):
         user = authenticate(username=username, password=password)
         if user is not None and user.is_active:
                 login(request, user)
-                messages.success(request, "utilisateur connecté.")
+                messages.success(request, f"{user.username} connecté")
                 context={
                 "User":user,
                 }
@@ -43,7 +39,7 @@ def loginUser(request):
                 "form":UserLoginForm(),
                
                 }
-                messages.error(request, "Mauvais identifiant.")
+                messages.error(request, "Mauvais identifiant")
                 return render(request,"auth_app/login.html",context) 
     if request.method == "GET" : 
             form = UserLoginForm()
