@@ -48,7 +48,7 @@ def signUp(request):
         if request.method == "GET":
             print(f"dans le Get")
             form = UserSignUpForm()
-        return render(request,'custom_user/signUp.html',{'form':form})
+        return render(request,'auth_app/signUp.html',{'form':form})
 
 
 def loginUser(request):
@@ -66,7 +66,7 @@ def loginUser(request):
             form = UserLoginForm()
             errorCredential="mauvais identifiant veuillez réessayez"
             
-            return render(request,"custom_user/login.html",{'form':form,'errorCredential':errorCredential}) 
+            return render(request,"auth_app/login.html",{'form':form,'errorCredential':errorCredential}) 
             
     if request.method == "GET" : 
         
@@ -74,11 +74,11 @@ def loginUser(request):
             context={
                 "User":request.user,
             }
-            return render(request,"custom_user/login.html",context) 
+            return render(request,"auth_app/login.html",context) 
             
         else : 
             form = UserLoginForm()
-            return render(request,"custom_user/login.html",{'form':form}) 
+            return render(request,"auth_app/login.html",{'form':form}) 
             
     
 

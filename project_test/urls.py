@@ -27,6 +27,6 @@ from . import views
 urlpatterns = [
     path('', views.index,name='index'),
     path('admin/', admin.site.urls,name='admin'),
-    path('auth/',include('custom_user.urls'),name='user'),
+    path('auth/',include('auth_app.urls')),
 ]
 urlpatterns+= static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

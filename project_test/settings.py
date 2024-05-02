@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'custom_user',
+    'auth_app',
 ]
 
 MIDDLEWARE = [
@@ -126,7 +126,7 @@ MEDIA_ROOT =   BASE_DIR /'media_files'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = 'custom_user.User'
+AUTH_USER_MODEL = 'auth_app.User'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL= '/auth/login'
 

@@ -4,10 +4,10 @@
 
 {% if user.is_authenticated %}
 <p>Welcome {{ user.username }} !!!</p>  
-<a href="{% url 'logout' %}">logout</a> 
+<a href="{% url 'auth_app:logout' %}">logout</a> 
 {%else%}
-<a href="{% url 'login' %}">connecté vous !</a>
-<a href="{% url 'signup' %}">pas encore inscrit cliquez ici !</a>
+<a href="{% url 'auth_app:login' %}">connecté vous !</a>
+<a href="{% url 'auth_app:signup' %}">pas encore inscrit cliquez ici !</a>
 {% endif %}
 
 

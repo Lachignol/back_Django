@@ -1,0 +1,15 @@
+Activer l'envirnoment virtuel:
+*env est le nom de l'environement virtuel crée donc a remplacer si autres noms 
+source env/bin/activate   
+
+Démarrer le serveur:
+python3 manage.py runserver
+
+Crée un super utilisateur:
+python3 manage.py createsuperuser
+
+Crée une migration :
+python3 manage.py makemigrations  
+
+Appliquer la migration :
+python3 manage.py migrate    

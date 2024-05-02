@@ -5,7 +5,7 @@
     {%if User %}
     <p>vous ête déja connecté</p>
     <p>
-      <a href="{% url 'logout' %}">logout</a>
+      <a href="{% url 'auth_app:logout' %}">logout</a>
       {% else %} {%if errorCredential%} {{errorCredential}} {%endif%}
     </p>
 
@@ -13,7 +13,7 @@
       {% csrf_token %} {{ form.as_p }}
       <button type="submit">SUBMIT</button>
     </form>
-    <a href="{% url 'signup' %}">pas encore inscrit cliquez ici !</a>
+    <a href="{% url 'auth_app:signup' %}">pas encore inscrit cliquez ici !</a>
     {% endif %} {%endblock%}
   </h1>
 </h1>
