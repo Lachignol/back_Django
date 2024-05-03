@@ -1,0 +1,13 @@
+{% extends "main.html" %}
+
+{%block content%}
+<h1>Test all restaurants<h1>
+
+{% for restaurant in allRestaurants %}
+<p>{{restaurant.name}}</p>
+<p>{{restaurant.inclusive_type}}</p>
+<p>{{restaurant.adress}}</p>
+
+{% endfor %}
+
+{%endblock%}

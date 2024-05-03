@@ -13,3 +13,7 @@ python3 manage.py makemigrations
 
 Appliquer la migration :
 python3 manage.py migrate    
+
+
+Crée une application(parti d'un projet réutilisable):
+python3 manage.py startapp polls (polls est a remplacer par le nom de l'application)
