@@ -1,7 +1,90 @@
-
-*{
-    background-color:red;
+body{
+    background-color:blanchedalmond;
     display:flex;
-    flex-direction:column;
-    align-items:center;
+    flex-direction: column;
+    align-items: center;
+
 }
+
+
+
+/* ---------------------------------Messages--------------------------------- */
+
+.parent_messages{
+    width:auto;
+    position:relative;
+    z-index: 1;
+  }
+  
+  .messages {
+    margin: auto;
+    font-size: x-large;
+    height:fit-content;
+    width: fit-content;
+    visibility: collapse;
+  }
+  
+  @keyframes visibility {
+    0% {
+      height: 1%;
+      visibility:visible;
+      opacity: 0;
+    }
+     
+    90% {
+      height: 90%;
+      visibility: visible;
+      opacity: 1;
+    }
+    100% {
+      height: 0%;
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+  
+  .error {
+    animation-name: visibility;
+    animation-duration: 6s;
+    color: red;
+   
+    
+  }
+  
+  .warning {
+    animation-name: visibility;
+    animation-duration: 6s;
+    color:rgb(232, 154, 10, 0.9);
+   
+  }
+  
+  .success {
+    color: black;
+    animation-name: visibility;
+    animation-duration: 6s;
+    color: rgb(34, 210, 34, 0.9);
+   
+  }
+  
+  .info {
+    animation-name: visibility;
+    animation-duration: 6s;
+    color:rgb(68, 68, 224, 0.9);
+  }
+  
+  .debug {
+    animation-name: visibility;
+    animation-duration: 6s;
+    color:rgb(238, 119, 238, 0.9);
+  }
+  
+
+/* ---------------------------------signup--------------------------------- */
+
+
+  .errorlist {
+    background-color: orange;
+    color: whitesmoke;
+    list-style: none;
+  }
+  
