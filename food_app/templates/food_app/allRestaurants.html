@@ -8,6 +8,8 @@
 <p>{{restaurant.inclusive_type}}</p>
 <p>{{restaurant.adress}}</p>
 
+<p><a href="{% url 'food_app:one_restaurant' restaurant.id %}">{{restaurant.creator.id}}</p>
+
 {% endfor %}
 
 {%endblock%}

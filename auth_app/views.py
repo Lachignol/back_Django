@@ -29,9 +29,6 @@ def loginUser(request):
         user = authenticate(username=username, password=password)
         if user is not None and user.is_active:
                 login(request, user)
-                messages.debug(request, f"{user.username} connecté")
-                messages.warning(request, f"{user.username} connecté")
-                messages.info(request, f"{user.username} connecté")
                 messages.success(request, f"{user.username} connecté")
                 context={
                 "User":user,

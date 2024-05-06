@@ -11,4 +11,3 @@ class RestaurantForm(ModelForm):
         exclude = ('creator',)
        
                 
-        
