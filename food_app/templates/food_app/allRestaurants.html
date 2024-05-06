@@ -1,6 +1,11 @@
 {% extends "main.html" %}
 
 {%block content%}
+
+{% if user.is_authenticated %}
+<a href="{% url 'food_app:restaurantsOfUser' %}"/>voir les restaurants ajouté par {{user.username}}</a>
+
+{%endif%}
 <h1>Test all restaurants<h1>
 
 {% for restaurant in allRestaurants %}
@@ -8,7 +13,7 @@
 <p>{{restaurant.inclusive_type}}</p>
 <p>{{restaurant.adress}}</p>
 
-<p><a href="{% url 'food_app:one_restaurant' restaurant.id %}">{{restaurant.creator.id}}</p>
+<a href="{% url 'food_app:one_restaurant' restaurant.id %}">{{restaurant.creator.id}}</a>
 
 {% endfor %}
 

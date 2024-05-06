@@ -28,6 +28,15 @@ def oneRestaurant(request,restaurantId):
     }
     return render(request,'food_app/oneRestaurant.html',context)
 
+def restaurantsOfUser(request):
+    if request.method == "GET" :
+                 restaurants = Restaurant.objects.filter(creator=request.user)
+                 context={
+                  "restaurantsOfUser":restaurants
+                 }
+                 messages.info(request, "voici vos restaurants")
+                 return render(request,"food_app/restaurantsOfUser.html",context)
+
 
 def addRestaurant(request):
     if request.method == "POST" :
@@ -42,3 +51,13 @@ def addRestaurant(request):
     if request.method == "GET" : 
             form = RestaurantForm()
             return render(request,"food_app/editRestaurant.html",{'form':form}) 
+        
+        
+def deleteRestaurant(request,restaurantId):
+    if request.method == "DELETE" :
+                 restaurant = Restaurant.objects.filter(id=id)
+                 if request.user == restaurant.creator :
+                  restaurant.delete()
+                 
+                  messages.success(request, f"{restaurant.name} bien supprimé")
+                  return HttpResponseRedirect("/food/all")

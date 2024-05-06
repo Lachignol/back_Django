@@ -1,0 +1,22 @@
+
+{% extends "main.html" %}
+
+{%block content%}
+
+<h1>Test restaurants of User <h1>
+
+    {% for restaurant in restaurantsOfUser %}
+    <p>{{restaurant.name}}</p>
+    <p>{{restaurant.inclusive_type}}</p>
+    <p>{{restaurant.adress}}</p>
+    
+    
+    <p>route pour modifier ajouté lien  </p>
+
+{%endfor%}
+
+
+
+
+
+{%endblock%}
