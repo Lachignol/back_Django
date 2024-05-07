@@ -34,7 +34,6 @@ def restaurantsOfUser(request):
                  context={
                   "restaurantsOfUser":restaurants
                  }
-                 messages.info(request, "voici vos restaurants")
                  return render(request,"food_app/restaurantsOfUser.html",context)
 
 
@@ -42,22 +41,21 @@ def addRestaurant(request):
     if request.method == "POST" :
                 form = RestaurantForm(request.POST,request.FILES)
                 if form.is_valid():
-                 restaurant = form.save(commit=False)
-                 print(request.user)
-                 restaurant.creator = request.user
-                 restaurant.save()
-                 messages.success(request, f"{restaurant.name} bien ajouté")
-                return HttpResponseRedirect("/food/all")
-    if request.method == "GET" : 
-            form = RestaurantForm()
-            return render(request,"food_app/editRestaurant.html",{'form':form}) 
+                   restaurant = form.save(commit=False)
+                   restaurant.creator = request.user
+                   restaurant.save()
+                   messages.success(request, f"{restaurant.name} bien ajouté")
+                   return HttpResponseRedirect("/food/all") 
+    else:
+     form = RestaurantForm()
+    return render(request,"food_app/editRestaurant.html",{'form':form}) 
         
         
 def deleteRestaurant(request,restaurantId):
-    if request.method == "DELETE" :
-                 restaurant = Restaurant.objects.filter(id=id)
+    if request.method == "POST" :
+                 restaurant = Restaurant.objects.get(pk=restaurantId)
                  if request.user == restaurant.creator :
-                  restaurant.delete()
-                 
-                  messages.success(request, f"{restaurant.name} bien supprimé")
-                  return HttpResponseRedirect("/food/all")
+                   restaurant.delete()
+                   messages.info(request, f"{restaurant.name} bien supprimé")
+    return HttpResponseRedirect("/food/restaurantsOfUser")
+

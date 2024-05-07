@@ -3,11 +3,11 @@ from django import forms
 from .models import Restaurant
 
 class RestaurantForm(ModelForm):
- 
+
     
     class Meta:
         model = Restaurant 
-        fields = '__all__'
-        exclude = ('creator',)
+        fields = ['name','adress','price','inclusive_type','food_type','image']
+        
        
                 

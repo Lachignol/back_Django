@@ -1,0 +1,14 @@
+{% extends "main.html" %}
+
+{%block content%}
+<div class="updateProfil">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+     {{ form.as_p }}
+        <button type="submit">Modifié les information !</button>
+    </form>
+    <small>
+    </small>
+  </div>
+
+{%endblock%}

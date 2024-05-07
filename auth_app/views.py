@@ -1,8 +1,8 @@
 from django.conf import settings
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.contrib.auth import authenticate,login,logout
-from .forms import UserLoginForm, UserSignUpForm
+from .forms import UserLoginForm, UserSignUpForm, UserUpdateForm
 from django.contrib import messages
 from .templates import *
 from .models import User
@@ -50,3 +50,37 @@ def loginUser(request):
 def logoutUser(request):
         logout(request)
         return HttpResponseRedirect(settings.LOGOUT_REDIRECT_URL)
+
+
+
+def updateUser(request):
+        if request.method == "POST":
+                  form = UserUpdateForm(request.POST,request.FILES, instance=request.user)
+                  if form.is_valid():
+                   user = form.save()
+                   login(request,user)
+                  return HttpResponseRedirect("/auth/profil")
+        else :
+                form = UserSignUpForm(instance=request.user)   
+                context = {
+                "form":form
+                ,}
+                return render(request, 'auth_app/updateProfil.html', context)
+    
+
+
+
+def deleteUser(request,userId):
+    if request.method == "POST" :
+                 user = User.objects.get(pk=userId)
+                 if request.user == user :
+                   user.delete()
+                   messages.info(request, f"{user.name} bien supprimé")
+    return HttpResponseRedirect("/auth/signup")
+
+
+
+
+def profilUser(request):
+    return render(request, 'auth_app/profilPage.html')
+       

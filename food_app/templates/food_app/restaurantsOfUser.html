@@ -3,12 +3,18 @@
 
 {%block content%}
 
-<h1>Test restaurants of User <h1>
+<h1>Test restaurants of {{user.username}} <h1>
 
     {% for restaurant in restaurantsOfUser %}
     <p>{{restaurant.name}}</p>
     <p>{{restaurant.inclusive_type}}</p>
     <p>{{restaurant.adress}}</p>
+    <p>
+
+    <form action="{% url 'food_app:restaurant_delete' restaurant.id %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Delete">
+        </form>
     
     
     <p>route pour modifier ajouté lien  </p>

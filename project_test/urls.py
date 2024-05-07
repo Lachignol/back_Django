@@ -22,7 +22,7 @@ from django.conf.urls.static import static
 
 from . import views
 
-
+app_name='main_app'
 
 
 urlpatterns = [
