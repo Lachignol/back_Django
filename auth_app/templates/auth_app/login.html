@@ -4,17 +4,18 @@
 
 <div class="loginPage">
 {% if user.is_authenticated %}
-<p>vous ête déja connecté</p>
-  <a href="{% url 'auth_app:logout' %}">logout</a>
-{%else%}
-<div>
-<form method="post">
-  {% csrf_token %} {{ form.as_p }}
-  <button type="submit">Connexion</button>
-</form>
-<small>
-  <a href="{% url 'auth_app:signup' %}">pas encore inscrit cliquez ici !</a>
-</small>
-</div>
+    <p>vous ête déja connecté</p>
+    <a href="{% url 'auth_app:logout' %}">logout</a>
+
+  {%else%}
+    <div>
+      <form method="post">
+        {% csrf_token %} {{ form.as_p }}
+          <button type="submit">Connexion</button>
+      </form>
+  <small>
+    <a href="{% url 'auth_app:signup' %}">pas encore inscrit cliquez ici !</a>
+  </small>
+  </div>
 </div>
 {% endif %}{%endblock%}
