@@ -70,13 +70,12 @@ def updateUser(request):
 
 
 
-def deleteUser(request,userId):
+def deleteUser(request):
     if request.method == "POST" :
-                 user = User.objects.get(pk=userId)
-                 if request.user == user :
+                   user = User.objects.get(pk=request.user.id)
                    user.delete()
-                   messages.info(request, f"{user.name} bien supprimé")
-    return HttpResponseRedirect("/auth/signup")
+                   messages.info(request, "compte correctement supprimé")
+    return HttpResponseRedirect("/auth/login")
 
 
 

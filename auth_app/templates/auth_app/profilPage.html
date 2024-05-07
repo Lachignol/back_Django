@@ -12,6 +12,10 @@
     </ul>
     <a href="{% url 'auth_app:update_user' %}"> modifier son profil</a>
     <a href="{% url 'auth_app:logout' %}">logout</a> 
+    <form action="{% url 'auth_app:delete_user' %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="supprimer le compte">
+            </form>
     {%else%}
     <a href="{% url 'auth_app:login' %}">connecté vous !</a>
     <a href="{% url 'auth_app:signup' %}">pas encore inscrit cliquez ici !</a>
