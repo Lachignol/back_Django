@@ -11,3 +11,9 @@ class RestaurantForm(ModelForm):
         
        
                 
+class RestaurantUpdateForm(ModelForm):
+
+    
+    class Meta:
+        model = Restaurant 
+        fields = ['name','adress','price','inclusive_type','food_type','image']

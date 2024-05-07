@@ -8,7 +8,7 @@ from django.contrib import messages
 
 from auth_app.models import User
 
-from .forms import RestaurantForm
+from .forms import RestaurantForm, RestaurantUpdateForm
 from .templates import *
 from .models import Restaurant,Food_type,Inclusive_type
 
@@ -49,6 +49,25 @@ def addRestaurant(request):
     else:
      form = RestaurantForm()
     return render(request,"food_app/editRestaurant.html",{'form':form}) 
+
+
+
+def updateRestaurant(request,restaurantId):
+        restaurantInit = Restaurant.objects.get(pk=restaurantId)
+        if request.method == "POST":
+                  
+                  form = RestaurantUpdateForm(request.POST,request.FILES, instance=restaurantInit)
+                  if form.is_valid():
+                   restaurant = form.save()
+                   restaurant.creator = request.user
+                   restaurant.save()
+                  return HttpResponseRedirect("/food/restaurantsOfUser")
+        else :
+                form = RestaurantUpdateForm(instance=restaurantInit)   
+                context = {
+                "form":form
+                ,}
+                return render(request, 'food_app/updateRestaurant.html', context)
         
         
 def deleteRestaurant(request,restaurantId):
