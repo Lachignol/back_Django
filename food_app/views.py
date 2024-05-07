@@ -48,7 +48,7 @@ def addRestaurant(request):
                    return HttpResponseRedirect("/food/all") 
     else:
      form = RestaurantForm()
-    return render(request,"food_app/editRestaurant.html",{'form':form}) 
+    return render(request,"food_app/addRestaurant.html",{'form':form}) 
 
 
 

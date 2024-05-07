@@ -6,14 +6,14 @@
 <a href="{% url 'food_app:restaurantsOfUser' %}"/>voir les restaurants ajouté par {{user.username}}</a>
 
 {%endif%}
-<h1>Test all restaurants<h1>
+<h1>All restaurants<h1>
 
 {% for restaurant in allRestaurants %}
 <p>{{restaurant.name}}</p>
 <p>{{restaurant.inclusive_type}}</p>
 <p>{{restaurant.adress}}</p>
 
-<a href="{% url 'food_app:one_restaurant' restaurant.id %}">{{restaurant.creator.id}}</a>
+<a href="{% url 'food_app:one_restaurant' restaurant.id %}">Voir plus sur ce restaurant</a>
 
 {% endfor %}
 

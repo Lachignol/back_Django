@@ -6,7 +6,7 @@ app_name='food_app'
 
 urlpatterns = [
     path('all',allRestaurants,name="all_restaurants"),
-    path('edit',addRestaurant,name="add_restaurant"),
+    path('add',addRestaurant,name="add_restaurant"),
     path('one/<int:restaurantId>/',oneRestaurant,name="one_restaurant"),
     path('updateRestaurant/<int:restaurantId>/',updateRestaurant,name="update_restaurant"),
     path('restaurantsOfUser/',restaurantsOfUser,name="restaurantsOfUser"),
