@@ -16,11 +16,12 @@
     <input type="submit" value="Delete">
         </form>
     
-    <a href="{% url 'food_app:add_restaurant'%}">Ajouté un nouveau restaurant </a>
+    
     </br>
     <a href="{% url 'food_app:update_restaurant' restaurant.id%}">Modifier ce restaurant</a>
 
 {%endfor%}
+<a href="{% url 'food_app:add_restaurant'%}">Ajouté un nouveau restaurant </a>
 
 
 

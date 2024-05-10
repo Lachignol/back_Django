@@ -1,2 +1,4 @@
 1 reste a regler les repertoires static et media pour avoir acces au photos
 2 il reste le front a faire
+3 faire des likes
+4 faire des commentaires
