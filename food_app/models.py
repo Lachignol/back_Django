@@ -1,5 +1,7 @@
 from django.db import models;
 from auth_app.models import User
+from likeNcom_app.models import Like,Comment
+
     
     
 class Food_type(models.Model):
@@ -35,6 +37,8 @@ class Restaurant(models.Model):
     inclusive_type=models.ForeignKey(Inclusive_type,on_delete=models.SET_NULL,null=True)
     food_type=models.ForeignKey(Food_type,on_delete=models.SET_NULL,null=True)
     image = models.ImageField(upload_to='restaurant_pict',blank=True,null=True)
+    likes = models.ManyToManyField(Like)
+    comments = models.ManyToManyField(Comment)
     
     
 

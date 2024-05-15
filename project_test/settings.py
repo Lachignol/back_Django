@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'auth_app',
-    'food_app'
+    'food_app',
+    'likeNcom_app'
 ]
 
 MIDDLEWARE = [
