@@ -22,6 +22,16 @@
     {% endif %}
        
 <p>{{restaurant.likes.count}}</p>
+
+{% if commentaires %}
+
+{% for commentaire in commentaires %}
+<p>{{commentaire.user.username}}</p>
+<p>{{commentaire.content}}</p>
+
+
+{% endfor %}
+{% endif %}
 {% comment %} <img src="{% 'restaurant.image' %}" /> {% endcomment %}
 
 

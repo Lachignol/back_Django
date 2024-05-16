@@ -13,5 +13,7 @@ class Comment(models.Model):
      
      
     def __str__(self):
-        return self.content
+        
+        return "Commentaire de  %s sur le restaurant  %s." % (self.user.username,self.restaurant.name)
+    
 

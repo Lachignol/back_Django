@@ -7,6 +7,7 @@ from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 
 from auth_app.models import User
+from likeNcom_app.models import Comment
 
 from .forms import RestaurantForm, RestaurantUpdateForm
 from .templates import *
@@ -23,8 +24,10 @@ def allRestaurants(request):
 
 def oneRestaurant(request,restaurantId):
     restaurant = Restaurant.objects.get(pk=restaurantId)
+    commentaires = Comment.objects.filter(restaurant=restaurant)
     context={
-        "restaurant":restaurant
+        "restaurant":restaurant,
+        "commentaires":commentaires
     }
     return render(request,'food_app/oneRestaurant.html',context)
 
