@@ -4,7 +4,7 @@ from .models import Restaurant , Inclusive_type, Food_type
 # Register your models here.
 class RestaurantAdmin(admin.ModelAdmin):
      model = Restaurant
-     field = "__all__"
+     field = "__All__"
 admin.site.register(Restaurant,RestaurantAdmin)
 
 

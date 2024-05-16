@@ -12,12 +12,15 @@ from .models import *
 
 def addOrDeleteLike(request,restaurantId):
     if request.method == "POST" :
-        restaurant = Restaurant.objects.get(pk=restaurantId)
-        print("tchikec",restaurant.likes.filter(user=request.user))
-        if like := restaurant.likes.filter(user=request.user):
-            like.delete()
+        if request.user.is_authenticated:
+            user = request.user
+            restaurant = Restaurant.objects.get(pk=restaurantId)
+            print(restaurant)
+            print("tchikec",restaurant.likes)
+        if restaurant.likes.filter(id=user.id).exists():
+            restaurant.likes.remove(user)
         else : 
-            restaurant.likes.add(Like.objects.create(user=request.user))
+            restaurant.likes.add(user)
         return HttpResponseRedirect(reverse("food_app:one_restaurant", kwargs={"restaurantId":restaurantId}))
     else :
         return HttpResponseRedirect(reverse("food_app:one_restaurant",kwargs={"restaurantId":restaurantId}))  
