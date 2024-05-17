@@ -2,17 +2,13 @@ from django.shortcuts import render
 from django.conf import settings
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.contrib.auth import authenticate,login,logout
-# from .forms import UserLoginForm, UserSignUpForm
 from django.contrib import messages
-
 from auth_app.models import User
 from likeNcom_app.forms import CommentForm
 from likeNcom_app.models import Comment
-
 from .forms import RestaurantForm, RestaurantUpdateForm
 from .templates import *
-from .models import Restaurant,Food_type,Inclusive_type
+from .models import Restaurant
 
 # Create your views here.
 
@@ -24,13 +20,17 @@ def allRestaurants(request):
     return render(request,'food_app/allRestaurants.html',context)
 
 def oneRestaurant(request,restaurantId):
+    user=request.user
     restaurant = Restaurant.objects.get(pk=restaurantId)
     commentaires = Comment.objects.filter(restaurant=restaurant)
+    likeStatus = restaurant.likes.filter(id=user.id).exists()
+    print(likeStatus)
     form = CommentForm()
     context={
         "restaurant":restaurant,
         "commentaires":commentaires,
-        'form':form
+        'form':form,
+        'like':likeStatus
     }
     return render(request,'food_app/oneRestaurant.html',context)
 

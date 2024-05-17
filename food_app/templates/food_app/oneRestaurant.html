@@ -13,7 +13,7 @@
 <p>{{restaurant.image}}<p>
     <form action="{% url 'likeNcom_app:addOrDelete_like' restaurant.id %}" method="post">
         {% csrf_token %}
-    {% if restaurant.likes %}
+    {% if like %}
     <input type="submit" value="unlike">
 </form>
     {% else %}

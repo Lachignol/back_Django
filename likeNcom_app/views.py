@@ -1,9 +1,6 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
 from django.urls import reverse
 from django.contrib import messages
-
-# Create your views here.
 from food_app.models import Restaurant
 from .forms import *
 from .models import *
@@ -41,8 +38,6 @@ def addOrDeleteLike(request,restaurantId):
         if request.user.is_authenticated:
             user = request.user
             restaurant = Restaurant.objects.get(pk=restaurantId)
-            print(restaurant)
-            print("tchikec",restaurant.likes)
         if restaurant.likes.filter(id=user.id).exists():
             restaurant.likes.remove(user)
         else : 
