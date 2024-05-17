@@ -7,6 +7,7 @@ from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 
 from auth_app.models import User
+from likeNcom_app.forms import CommentForm
 from likeNcom_app.models import Comment
 
 from .forms import RestaurantForm, RestaurantUpdateForm
@@ -25,9 +26,11 @@ def allRestaurants(request):
 def oneRestaurant(request,restaurantId):
     restaurant = Restaurant.objects.get(pk=restaurantId)
     commentaires = Comment.objects.filter(restaurant=restaurant)
+    form = CommentForm()
     context={
         "restaurant":restaurant,
-        "commentaires":commentaires
+        "commentaires":commentaires,
+        'form':form
     }
     return render(request,'food_app/oneRestaurant.html',context)
 

@@ -28,10 +28,23 @@
 {% for commentaire in commentaires %}
 <p>{{commentaire.user.username}}</p>
 <p>{{commentaire.content}}</p>
+{% if user == commentaire.user %}
+<a href="{% url 'likeNcom_app:deleteComment' restaurant.id commentaire.id%}"><button>supprimer ce commentaire</button></a>
 
+
+{% endif %}
 
 {% endfor %}
 {% endif %}
+
+
+<form method="post" action="{% url 'likeNcom_app:addComment' restaurant.id %}" >
+    {% csrf_token %} 
+    {{ form.as_p }}
+    <button type="submit">Ajouté un commentaire</button>
+  </form>
+
+
 {% comment %} <img src="{% 'restaurant.image' %}" /> {% endcomment %}
 
 
