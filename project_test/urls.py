@@ -29,7 +29,7 @@ urlpatterns = [
     path('', views.index,name='index'),
     path('admin/', admin.site.urls,name='admin'),
     path('auth/',include('auth_app.urls')),
-    path('food/',include('food_app.urls')),
+    path('',include('food_app.urls')),
     path('like/',include('likeNcom_app.urls'))
 ]
 

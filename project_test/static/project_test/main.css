@@ -1,5 +1,5 @@
 body{
-    background-color:blanchedalmond;
+    background-color:lightgray;
     display:flex;
     flex-direction: column;
     align-items: center;
@@ -27,7 +27,7 @@ body{
     visibility: collapse;
   }
   
-  @keyframes visibility {
+  @keyframes messagesvisibility {
     0% {
       height: 1%;
       visibility:visible;
@@ -47,7 +47,7 @@ body{
   }
   
   .error {
-    animation-name: visibility;
+    animation-name: messagesvisibility;
     animation-duration: 6s;
     color: red;
    
@@ -55,7 +55,7 @@ body{
   }
   
   .warning {
-    animation-name: visibility;
+    animation-name: messagesvisibility;
     animation-duration: 6s;
     color:rgb(232, 154, 10, 0.9);
    
@@ -63,20 +63,20 @@ body{
   
   .success {
     color: black;
-    animation-name: visibility;
+    animation-name: messagesvisibility;
     animation-duration: 6s;
     color: rgb(34, 210, 34, 0.9);
    
   }
   
   .info {
-    animation-name: visibility;
+    animation-name: messagesvisibility;
     animation-duration: 6s;
     color:rgb(68, 68, 224, 0.9);
   }
   
   .debug {
-    animation-name: visibility;
+    animation-name: messagesvisibility;
     animation-duration: 6s;
     color:rgb(238, 119, 238, 0.9);
   }
