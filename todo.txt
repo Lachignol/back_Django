@@ -1,5 +1,4 @@
 
 1il reste le front a faire
 2 faire des tri par filtre pour different restau
-3 pb quand on update un user il faut obligatoirement changer son pseudo 
-j'ai mis un classe form native pour changer les info user mais voir pour le mdp soit rajouté un lien (a voir dans le texte de la classe meme soi on change pas de mdp :) 
+
