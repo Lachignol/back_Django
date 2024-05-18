@@ -13,8 +13,8 @@ def signUp(request):
         if request.method == "POST" :
             form = UserSignUpForm(request.POST,request.FILES)
             if form.is_valid():
-                userForm = form.save(commit=False)
-                user = User.objects.create_user(username=userForm.username,first_name=userForm.first_name,last_name=userForm.last_name,email=userForm.email,password=userForm.password,avatar=userForm.avatar)
+                user= form.save(commit=False)
+                user.save()
                 login(request, user)
                 return HttpResponseRedirect(settings.LOGIN_REDIRECT_URL)
         if request.method == "GET":
@@ -46,7 +46,7 @@ def loginUser(request):
                 return render(request,"auth_app/login.html",context) 
     if request.method == "GET" : 
             form = UserLoginForm()
-            return render(request,"auth_app/login.html",{'form':form}) 
+    return render(request,"auth_app/login.html",{'form':form}) 
             
     
 
@@ -60,15 +60,12 @@ def updateUser(request):
         if request.method == "POST":
                   form = UserUpdateForm(request.POST,request.FILES, instance=request.user)
                   if form.is_valid():
-                   user = form.save()
-                   login(request,user)
-                  return HttpResponseRedirect("/auth/profil")
-        else :
-                form = UserSignUpForm(instance=request.user)   
-                context = {
-                "form":form
-                ,}
-                return render(request, 'auth_app/updateProfil.html', context)
+                    user = form.save()
+                    login(request,user)
+                    return HttpResponseRedirect("/auth/profil")
+        if request.method == "GET":
+                form = UserUpdateForm(instance=request.user)   
+        return render(request, 'auth_app/updateProfil.html',{"form":form})
     
 
 
