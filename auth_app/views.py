@@ -26,7 +26,10 @@ def loginUser(request):
     if request.method == "POST" :
         username = request.POST['username']
         password = request.POST['password']
+        print(username)
+        print(password)
         user = authenticate(username=username, password=password)
+        print(user)
         if user is not None and user.is_active:
                 login(request, user)
                 messages.success(request, f"{user.username} connecté")

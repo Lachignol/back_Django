@@ -1,11 +1,12 @@
 {% extends "main.html" %}
-
+{% load static %}
 {%block content%}
 <h1>Test User<h1>
 
     {% if user.is_authenticated %}
     <p>Welcome {{ user.username }} !!!</p> 
     <ul>
+    <img src="{% static user.avatar%}"/>
     <li>{{user.last_name}}</li> 
     <li>{{user.first_name}}</li> 
     <li>{{user.email}}</li> 

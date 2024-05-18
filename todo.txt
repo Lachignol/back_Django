@@ -1,3 +1,4 @@
-1 reste a regler les repertoires static et media pour avoir acces au photos
-2 il reste le front a faire
-4 faire des tri par filtre pour different restau
+
+1il reste le front a faire
+2 faire des tri par filtre pour different restau
+3 problème de user bizarement je crée un utilisateur mais jarrive pas a me connecté avec 

@@ -1,15 +1,16 @@
 
 {% extends "main.html" %}
-
+{% load static %}
 {%block content%}
 
 <h1>Restaurants ajouté par {{user.username}} <h1>
 
     {% for restaurant in restaurantsOfUser %}
     <p>{{restaurant.name}}</p>
+    <img src="{% static restaurant.image%}"/>
     <p>{{restaurant.inclusive_type}}</p>
     <p>{{restaurant.adress}}</p>
-    <p>
+
 
     <form action="{% url 'food_app:restaurant_delete' restaurant.id %}" method="post">
     {% csrf_token %}
