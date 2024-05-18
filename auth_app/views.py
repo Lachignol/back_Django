@@ -42,7 +42,7 @@ def loginUser(request):
                 "form":UserLoginForm(),
                
                 }
-                messages.error(request, "Mauvais identifiant")
+                messages.error(request, "Mauvais identifiant/mdp")
                 return render(request,"auth_app/login.html",context) 
     if request.method == "GET" : 
             form = UserLoginForm()
