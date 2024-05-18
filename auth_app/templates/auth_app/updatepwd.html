@@ -1,0 +1,14 @@
+{% extends "main.html" %}
+
+{%block content%}
+<div class="updatepwd">
+    <form method="post" >
+        {% csrf_token %}
+     {{ form.as_p }}
+        <button type="submit">Modifié le mdp !</button>
+    </form>
+    <small>
+    </small>
+  </div>
+
+{%endblock%}

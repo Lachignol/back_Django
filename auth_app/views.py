@@ -2,7 +2,7 @@ from django.conf import settings
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.contrib.auth import authenticate,login,logout
-from .forms import UserLoginForm, UserSignUpForm, UserUpdateForm
+from .forms import PasswordChangeForm, UserLoginForm, UserSignUpForm, UserUpdateForm
 from django.contrib import messages
 from .templates import *
 from .models import User
@@ -69,6 +69,17 @@ def updateUser(request):
     
 
 
+def updatePwd(request):
+        user = User.objects.get(pk=request.user.id)
+        if request.method == "POST":
+                  form = PasswordChangeForm(user,request.POST)
+                  if form.is_valid():
+                    print(form.is_valid)
+                    form.save()
+                    return HttpResponseRedirect("/auth/profil")
+        if request.method == "GET":
+                form = PasswordChangeForm(request.user)   
+        return render(request, 'auth_app/updatepwd.html',{"form":form})
 
 def deleteUser(request):
     if request.method == "POST" :

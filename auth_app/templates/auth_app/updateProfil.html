@@ -5,10 +5,12 @@
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
      {{ form.as_p }}
+     <small>
+      <a href="{% url 'auth_app:update_pwd' %}">Pour changer votre password c'est ici</a>
+    </small>
         <button type="submit">Modifié les information !</button>
     </form>
-    <small>
-    </small>
+   
   </div>
 
 {%endblock%}
