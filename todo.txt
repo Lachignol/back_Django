@@ -1,4 +1,4 @@
 
 1il reste le front a faire
 2 faire des tri par filtre pour different restau
-3 problème de user bizarement je crée un utilisateur mais jarrive pas a me connecté avec 
+3 pb quand on update un user il faut obligatoirement changer son pseudo 

@@ -51,7 +51,7 @@ def addRestaurant(request):
                    restaurant.creator = request.user
                    restaurant.save()
                    messages.success(request, f"{restaurant.name} bien ajouté")
-                   return HttpResponseRedirect("/food/all") 
+                   return HttpResponseRedirect("/all") 
     else:
      form = RestaurantForm()
     return render(request,"food_app/addRestaurant.html",{'form':form}) 
@@ -67,7 +67,7 @@ def updateRestaurant(request,restaurantId):
                    restaurant = form.save()
                    restaurant.creator = request.user
                    restaurant.save()
-                  return HttpResponseRedirect("/food/restaurantsOfUser")
+                  return HttpResponseRedirect("/restaurantsOfUser")
         else :
                 form = RestaurantUpdateForm(instance=restaurantInit)   
                 context = {
@@ -82,5 +82,5 @@ def deleteRestaurant(request,restaurantId):
                  if request.user == restaurant.creator :
                    restaurant.delete()
                    messages.info(request, f"{restaurant.name} bien supprimé")
-    return HttpResponseRedirect("/food/restaurantsOfUser")
+    return HttpResponseRedirect("/restaurantsOfUser")
 
