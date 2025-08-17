@@ -19,7 +19,7 @@ def signUp(request):
                 return HttpResponseRedirect(settings.LOGIN_REDIRECT_URL)
         if request.method == "GET":
             form = UserSignUpForm()
-        return render(request,'auth_app/signup.html',{'form':form})
+        return render(request,'auth_app/signUp.html',{'form':form})
 
 
 def loginUser(request):
